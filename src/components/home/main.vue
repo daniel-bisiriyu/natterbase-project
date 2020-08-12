@@ -1,12 +1,20 @@
 <template>
   <div>
-    <h1>Layout!!!!</h1>
+    <navigation-tab />
+    <Modules />
   </div>
 </template>
 
 <script>
-export default {};
+import NavigationTab from "./NavigationTab";
+import Modules from "./modules/index";
+
+export default {
+  components: {
+    NavigationTab,
+    Modules,
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>
