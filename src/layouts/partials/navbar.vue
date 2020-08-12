@@ -1,11 +1,18 @@
 <template>
   <div class="app-navbar">
-    <div class="content"></div>
+    <div class="content">
+      <nav-items />
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import NavItems from "./NavbarItems";
+export default {
+  components: {
+    NavItems,
+  },
+};
 </script>
 
 <style scoped>
@@ -13,6 +20,6 @@ export default {};
   width: 100%;
   background: #fbfbfb;
   margin: 0;
-  height: 10vh;
+  height: 5rem;
 }
 </style>
