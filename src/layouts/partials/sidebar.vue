@@ -27,12 +27,20 @@
           />
         </svg>
       </div>
+      <div class="menu-items">
+        <menu-items />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import MenuItems from "./SidebarMenuItems";
+export default {
+  components: {
+    MenuItems,
+  },
+};
 </script>
 
 <style scoped>
@@ -41,10 +49,14 @@ export default {};
   width: 7%;
   height: 100vh;
   margin: 0;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 .logo {
-  margin-top: 1.3rem;
+  height: 4.95rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #696969;
 }
 @media screen and (max-width: 768px) {
   .app-sidebar {
