@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="user-list-images">
-          <img src="@/assets/users-image-row.svg" alt="List of users" />
+          <img src="@/assets/image-row.png" alt="List of users" />
         </div>
       </div>
     </div>
