@@ -1,5 +1,5 @@
 <template>
-  <div class="backlog">
+  <div>
     <div class="heading">
       <p>Backlog</p>
       <div class="ellipsis">
@@ -36,35 +36,14 @@
         </svg>
       </div>
     </div>
-    <div class="add-new-backlog">
-      <div class="plus-icon">
-        <svg
-          width="10"
-          height="10"
-          viewBox="0 0 10 10"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9 5.14286H5.14286V9H3.85714V5.14286H0V3.85714H3.85714V0H5.14286V3.85714H9V5.14286Z"
-            fill="#23B3E8"
-          />
-        </svg>
-      </div>
-    </div>
-
-    <div class="new-item-input-area">
-      <input type="text" placeholder="Add a new item" value="Apply Gradient to" autofocus />
-    </div>
-
-    <div class="backlog-items" v-for="n in 6" :key="n">
-      <backlog-item />
+    <div class="backlog-items">
+      <backlog-item v-for="n in 6" :key="n" />
     </div>
   </div>
 </template>
 
 <script>
-import BacklogItem from "./SingleBacklogItem";
+import BacklogItem from "../modules/SingleBacklogItem";
 export default {
   components: {
     BacklogItem,
@@ -73,48 +52,18 @@ export default {
 </script>
 
 <style scoped>
-.add-new-backlog {
-  background: #ffffff;
-  height: 2.5rem;
-  width: 100%;
-  border-radius: 0.25rem;
-}
-.heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 .heading p {
   text-align: left;
-  font-size: 0.9rem;
-  font-weight: bolder;
-}
-.plus-icon {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  align-items: center;
-}
-.new-item-input-area {
-  background: #ffffff;
-  height: 4rem;
-  width: 100%;
-  margin-top: 1rem;
-  border-radius: 0.25rem;
-}
-.new-item-input-area input {
-  border: none;
   color: #03293d;
-  padding-top: 0.75rem;
-  font-size: 0.7rem;
-  width: 90%;
-}
-.new-item-input-area input:focus {
-  outline: none;
+  font-weight: bolder;
+  font-size: 1.1rem;
 }
 .backlog-items {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   border-radius: 0.5rem;
   width: 100%;
+}
+.backlog-items:first-of-type {
+  margin-top: 0;
 }
 </style>

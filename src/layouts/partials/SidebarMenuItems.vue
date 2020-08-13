@@ -148,6 +148,24 @@
         </svg>
       </div>
     </div>
+    <div class="logout-icon">
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect opacity="0.2" width="40" height="40" rx="20" fill="#E8E7EA" />
+        <path
+          d="M18 25L23 20L18 15"
+          stroke="#23B3E8"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -158,24 +176,32 @@ export default {};
 <style scoped>
 .sidebar-menu-items {
   display: flex;
-  height: 30%;
-  /* padding: 2rem 0; */
+  height: 13rem;
+  padding: 1rem 0;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   border-bottom: 1px solid #696969;
 }
 .sidebar-menu-items div {
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   cursor: pointer;
 }
 .user-list {
-  height: 30%;
-  padding: 2rem 0;
+  height: 12rem;
+  padding: 0.5rem 0;
   border-bottom: 1px solid #696969;
 }
 .single-user {
   padding: 0.5rem 0;
   cursor: pointer;
+}
+.logout-icon {
+  display: flex;
+  padding-top: 2rem;
+  height: 5rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 </style>

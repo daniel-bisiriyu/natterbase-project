@@ -47,8 +47,12 @@ export default {
 .app-sidebar {
   background: #052231;
   width: 7%;
-  height: 100vh;
+  height: 100%;
   margin: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
   /* overflow-y: auto; */
 }
 .logo {

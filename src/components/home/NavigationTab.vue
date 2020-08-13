@@ -1,19 +1,22 @@
 <template>
   <div class="navigation-tab">
     <div class="nav-items">
-      <div class="nav-item">
+      <div :class="{'active': onOverviewTab}" class="nav-item" @click="changeTab('overview')">
         <p>Overview</p>
       </div>
-      <div class="nav-item">
+      <div :class="{'active': onTeamsTab}" class="nav-item" @click="changeTab('teams')">
         <p>Teams</p>
       </div>
-      <div class="nav-item active">
+      <div :class="{'active': onModulesTab}" class="nav-item" @click="changeTab('modules')">
         <p>Modules</p>
       </div>
-      <div class="nav-item">
+      <div :class="{'active': onTestTab}" class="nav-item" @click="changeTab('tests')">
+        <p>Tests</p>
+      </div>
+      <div :class="{'active': onFilesTab}" class="nav-item" @click="changeTab('files')">
         <p>Files</p>
       </div>
-      <div class="nav-item">
+      <div :class="{'active': onProgressTab}" class="nav-item" @click="changeTab('progress')">
         <p>Progress</p>
       </div>
     </div>
@@ -26,8 +29,7 @@
           inactive-color="#f15832"
           active-text="All Modules"
           inactive-text="All Task"
-        >
-        </el-switch>
+        ></el-switch>
       </div>
       <div class="project-deadline">
         <div class="calendar-icon">
@@ -69,7 +71,27 @@ export default {
   data() {
     return {
       switchValue: false,
+      onOverviewTab: false,
+      onTeamsTab: false,
+      onModulesTab: true,
+      onTestTab: false,
+      onFilesTab: false,
+      onProgressTab: false,
     };
+  },
+  methods: {
+    changeTab(newTab) {
+      this.$emit("changeTab", newTab);
+      if (newTab == "tests") {
+        this.onTestTab = true;
+        this.onModulesTab = false;
+        console.log("modules tab " + this.onModulesTab);
+      } else if (newTab == "modules") {
+        this.onModulesTab = true;
+        this.onTestTab = false;
+        console.log("test tab " + this.onTestTab);
+      }
+    },
   },
 };
 </script>
