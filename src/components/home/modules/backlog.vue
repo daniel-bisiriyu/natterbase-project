@@ -65,19 +65,23 @@
     <div class="backlog-items">
       <backlog-item :items="backlogItems" />
     </div>
+    <success :display="successfullyAddedItem" />
   </div>
 </template>
 
 <script>
+import success from "../../success";
 import BacklogItem from "./SingleBacklogItem";
 export default {
   components: {
     BacklogItem,
+    success,
   },
   data() {
     return {
       newBacklogItem: "",
       backlogItems: ["Apply gredient colours on the dashboard sidenav"],
+      successfullyAddedItem: false,
     };
   },
   // watch: {
@@ -100,6 +104,10 @@ export default {
       localStorage.setItem("backlogs", JSON.stringify(backlog));
       this.backlogItems = JSON.parse(localStorage.getItem("backlogs"));
       this.newBacklogItem = "";
+      this.successfullyAddedItem = true;
+      setTimeout(() => {
+        this.successfullyAddedItem = false;
+      }, 2000);
     },
   },
 };
