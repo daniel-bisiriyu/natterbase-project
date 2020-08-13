@@ -3,13 +3,21 @@
     <div class="tests">
       <div
         class="single-test-case"
-        v-for="testCase in testCases"
+        v-for="(testCase, index) in testCases"
         :key="testCase.id"
       >
         <div>
           <p>{{ testCase.name }}</p>
         </div>
-        <div class="action-button" @click="shouldShowPopup(testCase.id)">
+        <div
+          :class="{
+            pass: testCase.status == 'Pass',
+            failed: testCase.status == 'Fail',
+            retest: testCase.status == 'Retest',
+          }"
+          class="action-button"
+          @click="shouldShowPopup(testCase.id, index)"
+        >
           <p>
             {{ testCase.status }}
             <span>
@@ -36,10 +44,10 @@
             <input type="text" placeholder="Search" class="popup-input" />
           </div>
           <div class="popup-options">
-            <li @click="changeStatus('Pass')">Pass</li>
-            <li @click="changeStatus('Failed')">Failed</li>
-            <li @click="changeStatus('Retest')">Retest</li>
-            <li @click="changeStatus('Untest')">Untest</li>
+            <li @click="changeStatus('Pass', index)">Pass</li>
+            <li @click="changeStatus('Failed', index)">Failed</li>
+            <li @click="changeStatus('Retest', index)">Retest</li>
+            <li @click="changeStatus('Untest', index)">Untest</li>
           </div>
         </div>
       </div>
@@ -89,13 +97,17 @@ export default {
         this.selectedId = id;
       }
     },
-    changeStatus(val) {
+    changeStatus(val, index) {
       if (val == "Pass") {
-        var testCaseToUpdate = this.testCases.filter((testcase) => {
-          return testcase.id == this.selectedId;
-        });
-        testCaseToUpdate[0].status = "Pass";
+        this.testCases[index].status = "Pass";
+      } else if (val == "Failed") {
+        this.testCases[index].status = "Fail";
+      } else if (val == "Retest") {
+        this.testCases[index].status = "Retest";
+      } else if (val == "Untest") {
+        this.testCases[index].status = "Untest";
       }
+      this.selectedId = null;
     },
   },
 };
@@ -132,6 +144,7 @@ export default {
   align-items: center;
   margin-left: 0;
   padding: 2rem 0.5rem 0.25rem 1rem;
+  cursor: pointer;
 }
 .test-cases-container > div:first-of-type > div:first-of-type {
   padding: 0.25rem 0.5rem 0.25rem 1rem;
@@ -145,13 +158,30 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 4rem;
+  width: 5rem;
   height: 1.8rem;
+  border-radius: 0.25rem;
+}
+.action-button.pass {
   background: linear-gradient(0deg, #4dbd98, #4dbd98),
     linear-gradient(0deg, #4dbd98, #4dbd98),
     linear-gradient(0deg, #4dbd98, #4dbd98), #4dbd98;
   border: 2px solid rgba(26, 12, 47, 0.1);
-  border-radius: 0.25rem;
+  color: #ffffff;
+}
+.action-button.failed {
+  background: #eb0e43;
+  border: 2px solid rgba(26, 12, 47, 0.1);
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: #ffffff;
+}
+.action-button.retest {
+  background: #f15832;
+  border: 2px solid rgba(26, 12, 47, 0.1);
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: #ffffff;
 }
 .action-button p {
   color: #ffffff;

@@ -14,6 +14,7 @@ export default {
 .success {
   position: absolute;
   bottom: 0;
+  z-index: 3;
   width: 100%;
   height: 4rem;
   background-color: #4dbd98;
@@ -21,5 +22,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+h5 {
+  color: #ffffff;
 }
 </style>
