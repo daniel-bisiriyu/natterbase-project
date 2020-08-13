@@ -32,6 +32,7 @@ export default {
 .content {
   background: rgba(45, 45, 45, 0.04);
   width: 93%;
+  margin-left: 7%;
   /* overflow: auto; */
 }
 /* .navbar {
