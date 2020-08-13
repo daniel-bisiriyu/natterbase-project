@@ -1,11 +1,11 @@
 <template>
   <div class="test-cases-container">
-    <div class="tests" v-for="n in 3" :key="n">
+    <div class="tests">
       <div class="single-test-case first">
         <div>
           <p>Make the background image blur</p>
         </div>
-        <div class="action-button">
+        <div class="action-button" @click="showPopup = !showPopup">
           <p>
             Pass
             <span>
@@ -27,12 +27,23 @@
             </span>
           </p>
         </div>
+        <div class="test-case--popup shadow" v-if="showPopup">
+          <div class="popup-input-container">
+            <input type="text" placeholder="Search" class="popup-input" />
+          </div>
+          <div class="popup-options">
+            <li>Pass</li>
+            <li>Failed</li>
+            <li>Retest</li>
+            <li>Untest</li>
+          </div>
+        </div>
       </div>
       <div class="single-test-case">
         <div>
           <p>Apply gredient colours on the navigation</p>
         </div>
-        <div class="action-button">
+        <div class="action-button" @click="showPopup = !showPopup">
           <p>
             Pass
             <span>
@@ -60,7 +71,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      showPopup: false,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -76,6 +93,7 @@ export default {};
   font-weight: 600;
 }
 .single-test-case {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -90,6 +108,7 @@ export default {};
   border-left: 2px solid #f15832;
 }
 .action-button {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,5 +124,47 @@ export default {};
   color: #ffffff;
   font-weight: normal;
   font-size: 0.9rem;
+}
+.test-case--popup {
+  position: absolute;
+  z-index: 1;
+  background: #ffffff;
+  width: 12rem;
+  /* height: 8rem; */
+  border-radius: 0.5rem;
+  top: 2.4rem;
+  right: 0;
+}
+.popup-input {
+  border: none;
+  background: #eeecf1;
+  /* opacity: 0.06; */
+  padding: 0 0.5rem;
+  height: 2rem;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0.5rem auto;
+}
+.popup-input:focus {
+  outline: none;
+}
+.popup-input-container input::placeholder {
+  color: #03293d !important;
+  opacity: 0.4;
+}
+.popup-options {
+  padding-bottom: 1rem;
+}
+.popup-options li {
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bolder;
+  list-style-type: none;
+  color: #03293d;
+  text-align: left;
+  padding: 0.25rem 1rem;
+}
+.popup-options li:hover {
+  background: #e8e7ea;
 }
 </style>

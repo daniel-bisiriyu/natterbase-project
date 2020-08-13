@@ -36,7 +36,7 @@
         </svg>
       </div>
     </div>
-    <div class="add-new-backlog">
+    <div class="add-new-backlog" @click="addNewBacklogItem">
       <div class="plus-icon">
         <svg
           width="10"
@@ -54,11 +54,16 @@
     </div>
 
     <div class="new-item-input-area">
-      <input type="text" placeholder="Add a new item" value="Apply Gradient to" autofocus />
+      <textarea
+        type="text"
+        placeholder="Add a new backlog"
+        v-model="newBacklogItem"
+        autofocus
+      />
     </div>
 
-    <div class="backlog-items" v-for="n in 6" :key="n">
-      <backlog-item />
+    <div class="backlog-items">
+      <backlog-item :items="backlogItems" />
     </div>
   </div>
 </template>
@@ -69,11 +74,40 @@ export default {
   components: {
     BacklogItem,
   },
+  data() {
+    return {
+      newBacklogItem: "",
+      backlogItems: ["Apply gredient colours on the dashboard sidenav"],
+    };
+  },
+  // watch: {
+  //   newBacklogItem() {
+
+  //   }
+  // },
+  mounted() {
+    if (localStorage.backlogs) {
+      this.backlogItems = JSON.parse(localStorage.getItem("backlogs"));
+    } else {
+      localStorage.setItem("backlogs", JSON.stringify(this.backlogItems));
+    }
+  },
+  methods: {
+    addNewBacklogItem() {
+      console.log(localStorage.backlogs);
+      var backlog = JSON.parse(localStorage.getItem("backlogs"));
+      backlog.unshift(this.newBacklogItem);
+      localStorage.setItem("backlogs", JSON.stringify(backlog));
+      this.backlogItems = JSON.parse(localStorage.getItem("backlogs"));
+      this.newBacklogItem = "";
+    },
+  },
 };
 </script>
 
 <style scoped>
 .add-new-backlog {
+  cursor: pointer;
   background: #ffffff;
   height: 2.5rem;
   width: 100%;
@@ -102,14 +136,14 @@ export default {
   margin-top: 1rem;
   border-radius: 0.25rem;
 }
-.new-item-input-area input {
+.new-item-input-area textarea {
   border: none;
   color: #03293d;
   padding-top: 0.75rem;
   font-size: 0.7rem;
   width: 90%;
 }
-.new-item-input-area input:focus {
+.new-item-input-area textarea:focus {
   outline: none;
 }
 .backlog-items {
