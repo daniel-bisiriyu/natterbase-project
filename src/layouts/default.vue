@@ -1,6 +1,8 @@
 <template>
   <div class="layout-container">
+    <!-- <div class="sidebar"> -->
     <app-sidebar />
+    <!-- </div> -->
     <div class="content">
       <div class="navbar">
         <app-navbar />
@@ -28,8 +30,19 @@ export default {
   display: flex;
 }
 .content {
-  background: #e5e5e5;
+  background: rgba(45, 45, 45, 0.04);
   width: 93%;
-  /* margin-left: 7%; */
+  margin-left: 7%;
+  /* overflow: auto; */
+}
+/* .navbar {
+  position: fixed;
+  width: 98%;
+}
+.main {
+  margin: 7rem 5rem 2rem;
+} */
+.main {
+  margin: 2rem 5rem;
 }
 </style>

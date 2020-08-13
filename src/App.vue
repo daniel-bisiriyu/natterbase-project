@@ -9,6 +9,14 @@
 </template>
 
 <style>
+@font-face {
+  font-family: "Nunito sans";
+  src: url("./assets/NunitoSans-Regular.ttf");
+  font-display: block;
+}
+* {
+  font-family: "Nunito sans" !important;
+}
 body {
   padding: 0;
   margin: 0;
@@ -21,6 +29,14 @@ body {
   color: #2c3e50;
 }
 
+.shadow {
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.15) !important;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 #nav {
   padding: 30px;
 }
@@ -32,5 +48,12 @@ body {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.el-switch__label.is-active {
+  font-weight: bolder;
+}
+.el-switch__label--right {
+  font-weight: bolder !important;
+  color: #f15832 !important;
 }
 </style>

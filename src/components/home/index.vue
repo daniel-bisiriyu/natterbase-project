@@ -1,18 +1,18 @@
 <template>
   <div class>
     <default-layout>
-      <main />
+      <home-content />
     </default-layout>
   </div>
 </template>
 
 <script>
 import DefaultLayout from "@/layouts/default";
-import main from "./main";
+import HomeContent from "./main";
 export default {
   components: {
     DefaultLayout,
-    main,
+    HomeContent,
   },
 };
 </script>
