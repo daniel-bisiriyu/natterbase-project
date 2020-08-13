@@ -220,7 +220,7 @@ export default {};
   height: 5rem;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 1rem;
+  margin-right: 5rem;
 }
 .col-two > div {
   padding: 0 1.2rem;

@@ -158,9 +158,10 @@ export default {};
 <style scoped>
 .sidebar-menu-items {
   display: flex;
-  padding: 2rem 0;
+  height: 30%;
+  /* padding: 2rem 0; */
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   border-bottom: 1px solid #696969;
 }
@@ -169,6 +170,7 @@ export default {};
   cursor: pointer;
 }
 .user-list {
+  height: 30%;
   padding: 2rem 0;
   border-bottom: 1px solid #696969;
 }
