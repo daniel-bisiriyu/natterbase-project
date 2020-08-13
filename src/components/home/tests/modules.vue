@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="module-container">
     <div class="heading">
-      <p>Backlog</p>
+      <p>Modules</p>
       <div class="ellipsis">
         <svg
           width="24"
@@ -75,6 +75,18 @@ export default {
   /* margin-top: 1rem; */
   border-radius: 0.5rem;
   width: 100%;
+  overflow: auto;
+}
+.backlog-items::-webkit-scrollbar {
+  width: 4px !important;
+}
+.backlog-items::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #d3d3d3;
+  border-radius: 10px;
+}
+.backlog-items::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 10px;
 }
 .backlog-items:first-of-type {
   margin-top: 0;

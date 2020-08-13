@@ -75,7 +75,7 @@ export default {};
 .list {
   width: 100%;
   background: #ffffff;
-  height: 46rem;
+  min-height: 10rem;
   margin-top: 1rem;
 }
 .plus-icon {
