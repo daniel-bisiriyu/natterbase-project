@@ -197,11 +197,9 @@ export default {};
   cursor: pointer;
 }
 .logout-icon {
-  display: flex;
-  padding-top: 2rem;
-  height: 5rem;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  position: absolute;
+  bottom: 0.5rem;
+  width: 100%;
+  margin: 0 auto;
 }
 </style>

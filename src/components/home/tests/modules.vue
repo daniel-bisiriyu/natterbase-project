@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="backlog-items">
-      <backlog-item v-for="n in 6" :key="n" />
+      <backlog-item :items="backlogItems" />
     </div>
   </div>
 </template>
@@ -47,6 +47,19 @@ import BacklogItem from "../modules/SingleBacklogItem";
 export default {
   components: {
     BacklogItem,
+  },
+  data() {
+    return {
+      newBacklogItem: "",
+      backlogItems: ["Apply gredient colours on the dashboard sidenav"],
+    };
+  },
+  mounted() {
+    if (localStorage.backlogs) {
+      this.backlogItems = JSON.parse(localStorage.getItem("backlogs"));
+    } else {
+      localStorage.setItem("backlogs", JSON.stringify(this.backlogItems));
+    }
   },
 };
 </script>
