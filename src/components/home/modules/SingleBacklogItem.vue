@@ -6,7 +6,7 @@
       :key="index"
     >
       <div class="backlog-item-row backlog-item--first-row">
-        <div>
+        <div class="item-description">
           <p>{{ item }}</p>
         </div>
         <div class="ellipsis">
@@ -80,7 +80,7 @@ export default {
 <style scoped>
 .single-backlog-item {
   width: 100%;
-  height: 6rem;
+  /* height: 6rem; */
   background: #ffffff;
   margin-top: 1rem;
 }
@@ -93,8 +93,11 @@ export default {
   align-items: center;
   padding: 0.1rem 0.5rem;
 }
+.item-description p {
+  max-width: 90%;
+}
 .backlog-item-row p {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   text-align: left;
   color: #03293d;
 }
@@ -108,6 +111,7 @@ small {
 }
 .due-date {
   padding-left: 0.5rem;
+  max-width: 100%;
 }
 .backlog-item--second-row > div:first-of-type {
   color: #03293d;
